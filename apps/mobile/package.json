@@ -10,10 +10,6 @@
     "test": "jest"
   },
   "dependencies": {
-    "react": "18.2.0",
-    "react-native": "0.71.8",
-    "react-test-renderer": "*",
-    "metro-config": "*",
     "@babel/core": "*",
     "@babel/preset-env": "*",
     "@babel/runtime": "*",
@@ -22,8 +18,12 @@
     "babel-jest": "*",
     "eslint": "*",
     "jest": "*",
+    "metro-config": "*",
     "metro-react-native-babel-preset": "*",
     "prettier": "*",
+    "react": "18.2.0",
+    "react-native": "0.71.8",
+    "react-test-renderer": "*",
     "typescript": "*"
   },
   "devDependencies": {
