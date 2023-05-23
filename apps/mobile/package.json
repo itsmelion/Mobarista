@@ -9,6 +9,8 @@
     "react-native": "*",
     "react-native-svg": "*",
     "metro-config": "*",
-    "react-test-renderer": "*"
+    "react-test-renderer": "*",
+    "dripsy": "*",
+    "@storybook/react-native": "*"
   }
 }
