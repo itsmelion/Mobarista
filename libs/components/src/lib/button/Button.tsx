@@ -1,8 +1,5 @@
-import React from 'react';
+import { View, Text } from 'dripsy';
 
-import { View, Text } from 'react-native';
-
-/* eslint-disable-next-line */
 export interface ButtonProps {}
 
 export function Button(props: ButtonProps) {
@@ -12,5 +9,3 @@ export function Button(props: ButtonProps) {
     </View>
   );
 }
-
-export default Button;

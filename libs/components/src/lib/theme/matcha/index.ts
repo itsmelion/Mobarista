@@ -5,7 +5,7 @@ import * as base from '../base';
 const colors: typeof base.colors = {
   $text: '#fff',
   $background: '#8E6',
-  $primary: 'tomato',
+  $primary: '#AED7A0',
 };
 
 export const theme = makeTheme({

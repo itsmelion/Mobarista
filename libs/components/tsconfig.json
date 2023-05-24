@@ -8,9 +8,12 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitReturns": true,
+    "composite": true,
     "noFallthroughCasesInSwitch": true
   },
-  "files": [],
+  "files": [
+    "../../node_modules/@nx/react-native/typings/svg.d.ts"
+  ],
   "include": [],
   "references": [
     {
