@@ -1,17 +1,3 @@
-import { useColorScheme } from 'react-native';
-import { Text, SafeAreaView, DripsyProvider } from 'dripsy';
-import { matcha, nightshade } from '@happynrwl/components';
+import StorybookUIRoot from '../.storybook';
 
-function App(): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  return (
-    <DripsyProvider theme={isDarkMode ? nightshade : matcha}>
-      <SafeAreaView sx={{ flex: 1, bg: '$background' }}>
-        <Text>Mobile App</Text>
-      </SafeAreaView>
-    </DripsyProvider>
-  );
-}
-
-export default App;
+export default StorybookUIRoot;

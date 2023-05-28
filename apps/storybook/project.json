@@ -16,13 +16,33 @@
         "command": "nx start storybook"
       }
     },
+    "update-stories": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "sb-rn-get-stories --config-path ./apps/storybook/.storybook"
+      }
+    },
+    "watch-stories": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "sb-rn-watcher --config-path ./apps/storybook/.storybook"
+      }
+    },
+    "go": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "react-native-storybook-server --config-dir ./apps/storybook/.storybook"
+      }
+    },
     "run-ios": {
       "executor": "@nx/react-native:run-ios",
       "options": {}
     },
     "bundle-ios": {
       "executor": "@nx/react-native:bundle",
-      "outputs": ["{options.bundleOutput}"],
+      "outputs": [
+        "{options.bundleOutput}"
+      ],
       "options": {
         "entryFile": "src/main.tsx",
         "platform": "ios",
@@ -43,7 +63,9 @@
     },
     "build-ios": {
       "executor": "@nx/react-native:build-ios",
-      "outputs": ["{projectRoot}/ios/build/Build"],
+      "outputs": [
+        "{projectRoot}/ios/build/Build"
+      ],
       "options": {}
     },
     "pod-install": {
@@ -52,7 +74,9 @@
     },
     "bundle-android": {
       "executor": "@nx/react-native:bundle",
-      "outputs": ["{options.bundleOutput}"],
+      "outputs": [
+        "{options.bundleOutput}"
+      ],
       "options": {
         "entryFile": "src/main.tsx",
         "platform": "android",
@@ -69,9 +93,13 @@
     },
     "lint": {
       "executor": "@nx/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["apps/storybook/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": [
+          "apps/storybook/**/*.{ts,tsx,js,jsx}"
+        ]
       }
     }
   },

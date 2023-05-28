@@ -3,14 +3,19 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "@react-navigation/elements": "*",
+    "@react-navigation/native": "*",
+    "@react-navigation/native-stack": "*",
+    "@react-navigation/routers": "*",
     "@testing-library/jest-native": "*",
     "@testing-library/react-native": "*",
+    "dripsy": "*",
+    "metro-config": "*",
     "react": "*",
     "react-native": "*",
+    "react-native-safe-area-context": "*",
+    "react-native-screens": "*",
     "react-native-svg": "*",
-    "metro-config": "*",
-    "react-test-renderer": "*",
-    "dripsy": "*",
-    "@storybook/react-native": "*"
+    "react-test-renderer": "*"
   }
 }

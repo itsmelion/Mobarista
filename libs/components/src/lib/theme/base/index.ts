@@ -30,11 +30,25 @@ export const baseTheme = {
   },
   text: {
     h1: {
-      fontSize: '$2', // 16px, from `fontSizes` above
+      fontSize: '$4',
+      fontFamily: "Metropolis-Medium",
+      fontWeight: '500'
     },
-    p: {
-      fontSize: '$0', // 12px from `fontSizes`
-      mb: '$3', // 16px from `space`
+    h2: {
+      fontSize: '$2',
+      fontFamily: "Metropolis-Bold",
+      fontWeight: '700'
+    },
+    body: {
+      fontSize: '$2',
+      fontFamily: "Metropolis-Medium",
+      fontWeight: '500',
+      color: '#000000'
+    },
+    medium: {
+      fontSize: '$1',
+      fontFamily: "Metropolis-SemiBold",
+      fontWeight: '600',
     },
   },
 };

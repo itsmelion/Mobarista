@@ -9,6 +9,14 @@
     "react-native": "*",
     "react-native-svg": "*",
     "metro-config": "*",
-    "react-test-renderer": "*"
+    "react-test-renderer": "*",
+    "@storybook/addon-ondevice-backgrounds": "*",
+    "@storybook/react-native": "*",
+    "dripsy": "*",
+    "@storybook/addon-ondevice-notes": "*",
+    "@storybook/addon-ondevice-controls": "*",
+    "@storybook/addon-ondevice-actions": "*",
+    "@storybook/addon-actions": "*",
+    "@storybook/react-native-server": "*"
   }
 }
