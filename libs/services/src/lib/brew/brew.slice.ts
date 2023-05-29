@@ -26,11 +26,9 @@ export const brewSlice = createSlice({
       state.size = action.payload;
     },
     addExtras: (state, action: PayloadAction<string>) => {
-      console.log(action);
       state.extras.push(action.payload);
       const uniqueArr = new Set(state.extras);
       state.extras = [...uniqueArr];
-      console.log(state.extras);
     },
   },
 })

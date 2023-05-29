@@ -27,7 +27,7 @@ export function AccordionItem(props: AccordionItemProps) {
           gap: '$3',
           px: '$3',
           py: '$3',
-          borderRadius: 4,
+          borderRadius: 8,
         }}>
         <Text variant='medium' sx={{ flex: 1, color: '#FFFFFF' }}>{title}</Text>
 

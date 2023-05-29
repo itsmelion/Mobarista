@@ -1,8 +1,10 @@
 import { Text, ScrollView, SafeAreaView } from 'dripsy';
 import { useNavigation } from '@react-navigation/native';
 
-import { Accordion, AccordionItem, Button, ListItem } from '@happynrwl/components';
+import { Accordion, AccordionItem, Button, ListItem, iconResolver } from '@happynrwl/components';
 import { useBrewExtras, useExtrasSelection, useSetExtras } from '@happynrwl/services';
+
+import * as overviewView from './Overview';
 
 export const config = {
   viewName: 'ExtrasSelection',
@@ -21,7 +23,9 @@ export function ExtrasSelection() {
         {extras?.map((extraItem) => (
           <Accordion
             key={extraItem._id}
-            HeaderComponent={<ListItem title={extraItem.name} />}>
+            HeaderComponent={(
+              <ListItem title={extraItem.name} Icon={iconResolver(extraItem._id)} />
+            )}>
             {extraItem.subselections.map((subItem) => (
               <AccordionItem
                 title={subItem.name}
@@ -36,7 +40,10 @@ export function ExtrasSelection() {
           </Accordion>
         ))}
 
-        <Button title="Continue" />
+        <Button
+          title="Continue"
+          onPress={() => navigation.navigate(overviewView.config.viewName)}
+        />
       </ScrollView>
     </SafeAreaView>
   );

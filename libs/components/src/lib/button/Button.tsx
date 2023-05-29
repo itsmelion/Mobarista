@@ -12,8 +12,13 @@ export interface ButtonProps extends PressableProps {
 export function Button({ title, sx, children, ...props }: ButtonProps) {
   return (
     <Pressable {...props} sx={sx}>
-      <Card>
-        <Text variant='h2' sx={{ fontSize: '$3', color: '#FFFFFF' }}>
+      <Card withShadow sx={{ minHeight: 78, justifyContent: 'center'}}>
+        <Text
+          variant='h2'
+          sx={{
+            fontSize: '$3',
+            color: '$textContrast',
+          }}>
           {title || children}
         </Text>
       </Card>

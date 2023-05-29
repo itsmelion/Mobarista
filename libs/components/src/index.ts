@@ -22,4 +22,5 @@ import CheckSvg from './lib/icons/check.svg';
 import ElipseSvg from './lib/icons/elipse.svg';
 import ChevronSvg from './lib/icons/chevron.svg';
 import MachineNFCSvg from './lib/icons/machine_nfc/machine_nfc.svg';
+export { iconResolver } from './lib/icons/iconResolver';
 export { MediumCoffeeSvg, CheckSvg, ElipseSvg, ChevronSvg, MachineNFCSvg };

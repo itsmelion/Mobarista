@@ -1,6 +1,6 @@
 import { ActivityIndicator } from 'react-native';
 import { SafeAreaView, ScrollView } from 'dripsy';
-import { ListItem, MediumCoffeeSvg } from '@happynrwl/components';
+import { ListItem, MediumCoffeeSvg, iconResolver } from '@happynrwl/components';
 import { useNavigation } from '@react-navigation/native';
 
 import * as sizeSelection from './SizeSelection'
@@ -21,8 +21,9 @@ export function StyleSelection() {
       <ScrollView sx={{ flex: 1 }} contentContainerSx={{ p: '$3', gap: '$2' }}>
         {data?.map(styleItem => (
           <ListItem
+            withShadow
             key={styleItem._id}
-            Icon={MediumCoffeeSvg}
+            Icon={iconResolver(styleItem._id)}
             title={styleItem.name}
             onPress={() => {
               setStyle(styleItem._id);

@@ -9,17 +9,26 @@ export interface ListItemProps extends PressableProps {
   Icon?: React.FC<SvgProps>;
   Status?: React.ReactElement;
   title: string;
+  withShadow?: boolean;
 }
 
 export function ListItem(props: ListItemProps) {
-  const { title, Status, Icon, children, ...restProps } = props;
+  const { title, Status, Icon, children, withShadow, ...restProps } = props;
 
   return (
     <Pressable sx={{ flexGrow: 0, flexShrink: 0, flexBasis: 'auto' }} {...restProps}>
-      <Card sx={{ flexDirection: 'row', alignItems: 'center',}}>
+      <Card
+        withShadow={withShadow}
+        sx={{
+          minHeight: 95,
+          flexDirection: 'row',
+          alignItems: 'center'
+        }}>
         {Icon && <Icon />}
 
-        <Text variant='medium' sx={{ flex: 1, color: '#FFFFFF' }}>{title}</Text>
+        <Text variant='medium' sx={{ flex: 1, color: '#FFFFFF' }}>
+          {title}
+        </Text>
 
         {Status && (
         <View sx={{ flexGrow: 0, flexShrink: 0, flexBasis: 'auto' }}>
