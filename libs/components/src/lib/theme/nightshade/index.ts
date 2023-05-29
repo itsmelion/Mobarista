@@ -3,9 +3,10 @@ import { makeTheme } from 'dripsy'
 import * as base from '../base';
 
 const colors: typeof base.colors = {
-  $text: '#000',
-  $background: '#fff',
-  $primary: 'tomato',
+  $text: '#FFFFFF',
+  $textContrast: '#000000',
+  $background: '#1F1F2E',
+  $primary: '#372F3F',
 };
 
 export const theme = makeTheme({

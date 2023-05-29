@@ -1,42 +1,25 @@
-import { Pressable, Text, View } from 'dripsy';
+import { View, SxProp } from 'dripsy';
 
-import type { PressableProps } from 'react-native';
-import type { SvgProps } from 'react-native-svg';
+import type { ViewProps } from 'react-native';
 
-export interface CardProps extends PressableProps {
-  Icon?: React.FC<SvgProps>;
-  Status?: React.ReactElement;
-  title: string;
+export interface CardProps extends ViewProps {
+  sx?: SxProp;
 }
 
 export function Card(props: CardProps) {
-  const { title, Status, Icon, ...restProps } = props;
+  const { sx, ...restProps } = props;
 
   return (
-    <Pressable sx={{ flexGrow: 0, flexShrink: 0, flexBasis: 'auto' }} {...restProps}>
-      <View
-        sx={{
-          flexGrow: 0,
-          flexShrink: 0,
-          flexBasis: 'auto',
-          flexDirection: 'row',
-          flexWrap: 'nowrap',
-          bg: '$primary',
-          alignItems: 'center',
-          gap: '$3',
-          p: '$3',
-          borderRadius: 8,
-        }}>
-        {Icon && <Icon />}
-
-        <Text variant='medium' sx={{ flex: 1, color: '#FFFFFF' }}>{title}</Text>
-
-        {Status && (
-        <View sx={{ flexGrow: 0, flexShrink: 0, flexBasis: 'auto' }}>
-          {Status}
-        </View>
-        )}
-      </View>
-    </Pressable>
+    <View sx={{
+      ...sx,
+      flexGrow: 0,
+      flexShrink: 0,
+      flexBasis: 'auto',
+      flexWrap: 'nowrap',
+      bg: '$primary',
+      p: '$3',
+      gap: '$3',
+      borderRadius: 4,
+    }} {...restProps} />
   );
 }

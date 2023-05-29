@@ -15,7 +15,11 @@ export function Header({ navigation, route, options, back }:NavigationHeaderProp
   return (
     <View style={options.headerStyle} sx={{ p: '$3', bg: '#FFFFFF' }}>
       <View sx={{ flex: 0, flexDirection: 'row', alignItems: 'center' }}>
-        {back ? <Pressable sx={{ p: '$1'}} onPress={navigation.goBack}><ChevronSvg /></Pressable> : null}
+        {!back ? null : (
+          <Pressable sx={{ p: '$1', mr: '$2' }} onPress={navigation.goBack}>
+            <ChevronSvg />
+          </Pressable>
+        )}
 
         <Text variant='h2'>{title}</Text>
       </View>

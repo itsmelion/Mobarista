@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@happynrwl/components": ["libs/components/src/index.ts"]
+      "@happynrwl/components": ["libs/components/src/index.ts"],
+      "@happynrwl/services": ["libs/services/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

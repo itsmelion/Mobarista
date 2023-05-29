@@ -1,8 +1,9 @@
 import { makeTheme } from 'dripsy'
 
 export const colors = {
-  $text: '#fff',
-  $background: '#8E6',
+  $text: '#000000',
+  $textContrast: '#FFFFFF',
+  $background: '#FFFFFF',
   $primary: 'tomato',
 };
 
@@ -39,11 +40,17 @@ export const baseTheme = {
       fontFamily: "Metropolis-Bold",
       fontWeight: '700'
     },
+    button: {
+      fontSize: '$3',
+      fontFamily: "Metropolis-Bold",
+      fontWeight: '700',
+      color: '$textContrast'
+    },
     body: {
       fontSize: '$2',
       fontFamily: "Metropolis-Medium",
       fontWeight: '500',
-      color: '#000000'
+      color: '$text'
     },
     medium: {
       fontSize: '$1',

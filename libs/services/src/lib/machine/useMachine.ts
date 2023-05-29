@@ -1,0 +1,32 @@
+import { useQuery, UseQueryOptions } from '@tanstack/react-query';
+import { MachineDTO } from './machine.types';
+
+export interface ServicesProps {
+  machineId: string; // maybe use zod for UID
+}
+
+// normaly ENV var
+const host = 'https://darkroastedbeans.coffeeit.nl';
+
+export function useMachine<TData = MachineDTO>(
+  machineId: string = '60ba1ab72e35f2d9c786c610',
+  options?: UseQueryOptions<TData>
+) {
+  return useQuery<TData>({
+    queryKey: ['coffee-machine', machineId],
+    queryFn: () => fetch(`${host}/coffee-machine/${machineId}`, {
+      "headers": {
+        "accept": "application/json",
+      },
+      "method": "GET",
+      "mode": "cors",
+    })
+   .then(r => r.json())
+   .then(r => {
+      // add machine name, which seems to be lacking.
+      r.machineName = 'Lex';
+      return r;
+   }),
+   ...options,
+  });
+}

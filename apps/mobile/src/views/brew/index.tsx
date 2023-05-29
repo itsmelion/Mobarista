@@ -1,18 +1,20 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Header } from '@happynrwl/components';
 
 import * as styleSelection from './StyleSelection';
 import * as sizeSelection from './SizeSelection';
 import * as extrasSelection from './ExtrasSelection';
 import * as overview from './Overview';
-import { Header } from '@happynrwl/components';
+
+export const stackName = 'brewStack';
 
 const Stack = createNativeStackNavigator();
 
-export function BrewStack({ machineName }) {
+export function BrewStack({ route }) {
   return (
     <Stack.Navigator
       initialRouteName={styleSelection.config.viewName}
-      screenOptions={{ header: Header, headerTitle: `Brew with ${machineName}` }}>
+      screenOptions={{ header: Header, headerTitle: `Brew with ${route.params.machineName}` }}>
       <Stack.Screen
         name={styleSelection.config.viewName}
         component={styleSelection.StyleSelection}

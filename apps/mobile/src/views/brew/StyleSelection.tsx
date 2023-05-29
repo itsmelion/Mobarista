@@ -1,8 +1,10 @@
-import { Text, SafeAreaView, ScrollView } from 'dripsy';
-import { Card, MediumCoffeeSvg } from '@happynrwl/components';
+import { ActivityIndicator } from 'react-native';
+import { SafeAreaView, ScrollView } from 'dripsy';
+import { ListItem, MediumCoffeeSvg } from '@happynrwl/components';
 import { useNavigation } from '@react-navigation/native';
 
 import * as sizeSelection from './SizeSelection'
+import { useBrewStyles, useSetStyle } from '@happynrwl/services';
 
 export const config = {
   viewName: 'StyleSelection',
@@ -11,16 +13,23 @@ export const config = {
 
 export function StyleSelection() {
   const navigation = useNavigation();
+  const { data } = useBrewStyles();
+  const setStyle = useSetStyle();
 
   return (
     <SafeAreaView sx={{ flex: 1, bg: '#FFFFFF' }}>
-      <ScrollView sx={{ flex: 1 }} contentContainerSx={{ p: '$3' }}>
-        <Card
-          Icon={MediumCoffeeSvg}
-          title='Card Item'
-          Status={<Text>status</Text>}
-          onPress={() => navigation.navigate(sizeSelection.config.viewName)}
-        />
+      <ScrollView sx={{ flex: 1 }} contentContainerSx={{ p: '$3', gap: '$2' }}>
+        {data?.map(styleItem => (
+          <ListItem
+            key={styleItem._id}
+            Icon={MediumCoffeeSvg}
+            title={styleItem.name}
+            onPress={() => {
+              setStyle(styleItem._id);
+              navigation.navigate(sizeSelection.config.viewName)
+            }}
+          />
+        )) ?? <ActivityIndicator/>}
       </ScrollView>
     </SafeAreaView>
   );

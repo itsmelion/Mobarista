@@ -1,4 +1,4 @@
-{
+module.exports = {
   "extends": ["plugin:@nx/react", "../../.eslintrc.json"],
   "ignorePatterns": ["!**/*", "public", ".cache", "node_modules"],
   "overrides": [

@@ -1,5 +1,5 @@
 import { Text, SafeAreaView } from 'dripsy';
-import { Card, MediumCoffeeSvg } from '@happynrwl/components';
+import { Card, ListItem, MediumCoffeeSvg } from '@happynrwl/components';
 import { useNavigation } from '@react-navigation/native';
 
 export const config = {
@@ -12,7 +12,7 @@ export function SizeSelection() {
 
   return (
     <SafeAreaView sx={{ flex: 1, bg: '#FFFFFF' }}>
-      <Card
+      <ListItem
         Icon={MediumCoffeeSvg}
         title='Card Item'
         Status={<Text>status</Text>}

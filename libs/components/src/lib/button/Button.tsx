@@ -1,11 +1,22 @@
-import { View, Text } from 'dripsy';
+import type { PressableProps } from 'react-native';
+import { Pressable, SxProp, Text } from 'dripsy';
+import { Card } from '../card/Card';
 
-export interface ButtonProps {}
+export interface ButtonProps extends PressableProps {
+  title?: string;
+  disabled?: boolean;
+  children?: string;
+  sx?: SxProp;
+}
 
-export function Button(props: ButtonProps) {
+export function Button({ title, sx, children, ...props }: ButtonProps) {
   return (
-    <View>
-      <Text>Welcome to Button!</Text>
-    </View>
+    <Pressable {...props} sx={sx}>
+      <Card>
+        <Text variant='h2' sx={{ fontSize: '$3', color: '#FFFFFF' }}>
+          {title || children}
+        </Text>
+      </Card>
+    </Pressable>
   );
 }

@@ -16,6 +16,13 @@
     "react-native-safe-area-context": "*",
     "react-native-screens": "*",
     "react-native-svg": "*",
-    "react-test-renderer": "*"
+    "react-test-renderer": "*",
+    "@react-native-community/netinfo": "*",
+    "@tanstack/react-query": "*",
+    "react-redux": "*",
+    "@storybook/react-native": "*",
+    "@reduxjs/toolkit": "*",
+    "@testing-library/react": "*",
+    "lodash": "*"
   }
 }

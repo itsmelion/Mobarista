@@ -10,6 +10,10 @@ export type { NightShadeTheme } from './lib/theme/nightshade'
 export * from './lib/button/Button';
 export * from './lib/card/Card';
 export * from './lib/header/Header';
+export * from './lib/separator/Separator';
+export * from './lib/accordion/Accordion';
+export * from './lib/accordion/AccordionItem';
+export * from './lib/listItem/ListItem';
 
 
 // Icons
@@ -17,4 +21,5 @@ import MediumCoffeeSvg from './lib/icons/lungo/medium.svg';
 import CheckSvg from './lib/icons/check.svg';
 import ElipseSvg from './lib/icons/elipse.svg';
 import ChevronSvg from './lib/icons/chevron.svg';
-export { MediumCoffeeSvg, CheckSvg, ElipseSvg, ChevronSvg };
+import MachineNFCSvg from './lib/icons/machine_nfc/machine_nfc.svg';
+export { MediumCoffeeSvg, CheckSvg, ElipseSvg, ChevronSvg, MachineNFCSvg };

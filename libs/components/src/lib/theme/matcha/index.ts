@@ -3,8 +3,9 @@ import { makeTheme } from 'dripsy';
 import * as base from '../base';
 
 const colors: typeof base.colors = {
-  $text: '#fff',
-  $background: '#8E6',
+  $text: '#000000',
+  $textContrast: '#FFFFFF',
+  $background: '#FFFFFF',
   $primary: '#AED7A0',
 };
 
