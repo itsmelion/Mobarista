@@ -1,17 +1,15 @@
-import { useColorScheme } from 'react-native';
+import { useColorScheme, Alert } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import NetInfo from '@react-native-community/netinfo'
 import { DripsyProvider } from 'dripsy';
 import {
-  onlineManager,
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
 import { Provider } from 'react-redux';
-import { useEffect } from 'react';
+import {setJSExceptionHandler, setNativeExceptionHandler } from 'react-native-exception-handler';
 
 import { matcha, nightshade } from '@happynrwl/components';
-import { store } from '@happynrwl/services';
+import { errorHandler, store, useOnlineManager } from '@happynrwl/services';
 
 import { RootStack } from './views/root';
 
@@ -19,6 +17,7 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       keepPreviousData: true,
+      suspense: true,
     },
   },
 });
@@ -26,15 +25,12 @@ const queryClient = new QueryClient({
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
-  // Observes whenever the app goes offline and tells react-query
-  // making possible to handle network drops and retries.
-  useEffect(() => {
-    onlineManager.setEventListener(setOnline => {
-      return NetInfo.addEventListener(state => {
-        setOnline(!!state.isConnected)
-      });
-    });
-  }, []);
+  setJSExceptionHandler(errorHandler);
+  setNativeExceptionHandler((errorString) => {
+    //You can do something like call an api to report to dev team here
+  });
+
+  useOnlineManager();
 
   return (
     <Provider store={store}>

@@ -5,7 +5,6 @@ export interface ServicesProps {
   machineId: string; // maybe use zod for UID
 }
 
-// normaly ENV var
 const host = 'https://darkroastedbeans.coffeeit.nl';
 
 export function useMachine<TData = MachineDTO>(
@@ -14,6 +13,7 @@ export function useMachine<TData = MachineDTO>(
 ) {
   return useQuery<TData>({
     queryKey: ['coffee-machine', machineId],
+    suspense: true,
     queryFn: () => fetch(`${host}/coffee-machine/${machineId}`, {
       "headers": {
         "accept": "application/json",

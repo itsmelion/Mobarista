@@ -5,3 +5,5 @@ export * from './lib/machine/useMachine';
 export * from './lib/brew/brew.slice';
 export * from './lib/hooks';
 export * from './lib/store';
+export * from './lib/errorHandlers/globalErros';
+export * from './lib/onlineManager';
