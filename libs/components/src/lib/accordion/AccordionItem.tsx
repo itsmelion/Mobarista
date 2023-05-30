@@ -9,10 +9,11 @@ import { PressableProps, StyleSheet, ViewProps } from 'react-native';
 export interface AccordionItemProps extends PressableProps {
   selected?: boolean;
   title: string;
+  sx?: SxProp;
 }
 
 export function AccordionItem(props: AccordionItemProps) {
-  const { title, selected, children, ...restProps } = props;
+  const { title, selected, children, sx, ...restProps } = props;
 
   return (
     <Pressable sx={{ flexGrow: 0, flexShrink: 0, flexBasis: 'auto' }} {...restProps}>
@@ -29,6 +30,7 @@ export function AccordionItem(props: AccordionItemProps) {
           px: '$3',
           py: '$3',
           borderRadius: 8,
+          ...sx,
         }}>
         <Text variant='medium' sx={{ flex: 1, color: '#FFFFFF' }}>{title}</Text>
 

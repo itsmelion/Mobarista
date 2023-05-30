@@ -40,7 +40,7 @@ const Item = ({ item }) => {
           sx={{ w: '100%' }}
           Status={<Text sx={{ color: '$textContrast' }}>edit</Text>}
         />
-        <AccordionItem title={item.name} selected />
+        <AccordionItem title={item.name} selected sx={{ mb: '$2' }} />
       </Fragment>
     )
   }
