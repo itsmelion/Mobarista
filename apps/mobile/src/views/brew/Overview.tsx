@@ -1,5 +1,5 @@
-import { Text, SafeAreaView, ScrollView } from 'dripsy';
-import { Button, Card, ListItem, MediumCoffeeSvg, Separator } from '@happynrwl/components';
+import { Text, SafeAreaView, FlatList, View } from 'dripsy';
+import { Button, Card, ListItem, Separator, iconResolver } from '@happynrwl/components';
 import { useNavigation } from '@react-navigation/native';
 import { useBrewExtras, useExtrasSelection } from '@happynrwl/services';
 
@@ -15,42 +15,40 @@ export function SizeSelection() {
 
   return (
     <SafeAreaView sx={{ flex: 1, bg: '$background', p: '$3' }}>
-      {/* Could be a FlatList */}
-      <ScrollView sx={{ flex: 1 }} contentContainerSx={{ gap: '$2' }}>
-        <Card withShadow>
-          <ListItem
-            Icon={MediumCoffeeSvg}
-            title='Card Item'
-            Status={<Text>status</Text>}
-          />
-          <Separator />
-
-          <ListItem
-            Icon={MediumCoffeeSvg}
-            title='Card Item'
-            Status={<Text>status</Text>}
-          />
-          <Separator />
-
-          <ListItem
-            Icon={MediumCoffeeSvg}
-            title='Card Item'
-            Status={<Text>status</Text>}
-          />
-          <Separator />
-
-          <ListItem
-            Icon={MediumCoffeeSvg}
-            title='Card Item'
-            Status={<Text>status</Text>}
-          />
-        </Card>
-      </ScrollView>
-
-      {/* use absolute and offset scrollview end */}
-      <Button
-        title='Brew your coffee'
+      <Card
+        withShadow
+        sx={{
+          flexGrow: 1,
+          flexShrink: 0,
+          flexBasis: 'auto',
+        }}>
+      <FlatList
+        renderItem={Item}
+        ItemSeparatorComponent={Separator}
+        keyExtractor={({ id }) => id}
+        data={[
+          { name: 'Milks', id: '60be1eabc45ecee5d77ad960' },
+          { name: 'Coffee', id: '60be1db3c45ecee5d77ad890' },
+          { name: 'Ristretto', id: '60ba197c2e35f2d9c786c525' },
+          { name: 'Lungo', id: '60ba3368c45ecee5d77a016b' },
+        ]}
+        // ListFooterComponent={<Button title='Brew your coffee' />} better here? but card.
       />
+      </Card>
+
+      <View sx={{ flex: 1 }} />
+
+      <Button title='Brew your coffee' />
     </SafeAreaView>
   );
 }
+
+const Item = ({ item }) => (
+  <ListItem
+    key={item.key}
+    Icon={iconResolver(item.id)}
+    title={item.name}
+    sx={{ w: '100%' }}
+    Status={<Text>edit</Text>}
+  />
+)

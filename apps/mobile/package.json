@@ -20,12 +20,14 @@
     "moti": "*",
     "react": "*",
     "react-native": "*",
+    "react-native-error-boundary": "*",
+    "react-native-exception-handler": "*",
     "react-native-reanimated": "*",
+    "react-native-restart": "*",
     "react-native-safe-area-context": "*",
     "react-native-screens": "*",
     "react-native-svg": "*",
     "react-redux": "*",
-    "react-test-renderer": "*",
-    "react-native-exception-handler": "*"
+    "react-test-renderer": "*"
   }
 }
