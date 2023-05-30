@@ -8,20 +8,18 @@ export type MachineDTO = {
   "extras": ExtraOption[]
 }
 
-type ExtraOption = {
-  "_id": string,
-  "name": string,
+type ExtraOption = OptionLike & {
   "subselections": Omit<ExtraOption, 'subselections'>[];
 }
 
-type SizeOption = {
-  "_id": string,
-  "name": string,
-}
+type SizeOption = OptionLike;
 
-type StyleOption = {
-  "_id": string,
-  "name": string,
+export type StyleOption = OptionLike & {
   "sizes": string[],
   "extras": string[],
+}
+
+export type OptionLike = {
+  "_id": string,
+  "name": string,
 }

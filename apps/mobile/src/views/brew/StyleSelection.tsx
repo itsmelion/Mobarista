@@ -27,7 +27,7 @@ export function StyleSelection() {
               <Pressable
                 key={styleItem._id}
                 onPress={() => {
-                  setStyle(styleItem._id);
+                  setStyle(styleItem);
                   navigation.navigate(sizeSelection.config.viewName)
                 }}>
                 <ListItem

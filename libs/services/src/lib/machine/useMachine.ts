@@ -1,5 +1,5 @@
 import { useQuery, UseQueryOptions } from '@tanstack/react-query';
-import { MachineDTO } from './machine.types';
+import type { MachineDTO } from './machine.types';
 
 export interface ServicesProps {
   machineId: string; // maybe use zod for UID
@@ -7,6 +7,12 @@ export interface ServicesProps {
 
 const host = 'https://darkroastedbeans.coffeeit.nl';
 
+/**
+ *
+ * @param machineId
+ * @param UseQueryOptions
+ * @returns Machine details and its many brew options available.
+ */
 export function useMachine<TData = MachineDTO>(
   machineId: string = '60ba1ab72e35f2d9c786c610',
   options?: UseQueryOptions<TData>

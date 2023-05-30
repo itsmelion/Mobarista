@@ -1,22 +1,23 @@
 import _ from 'lodash';
-import { useMachine } from './useMachine';
-import { useStyleSelection } from '../brew/brew.slice';
 import { useMemo } from 'react';
 
-// TODO: Handle edge-cases
-// TODO: array mapping efficiency
+import { useMachine } from './useMachine';
+import { useStyleSelection } from '../brew/brew.slice';
 
+/**
+ *
+ * @returns List of sizes available to choose for the coffee style selected.
+ */
 export function useBrewSize() {
   const { data } = useMachine();
-  const styleId = useStyleSelection();
+  const styleChoice = useStyleSelection();
 
   const result = useMemo(() => {
     const sizesAvailable = _.keyBy(data?.sizes, '_id');
-    const selectedStyle = data?.types.find((style) => style._id === styleId);
-    const hydrateSizes = selectedStyle?.sizes.map((size) => sizesAvailable[size]);
+    const hydrateSizes = styleChoice?.sizes.map((size) => sizesAvailable[size]);
 
     return hydrateSizes;
-  }, [data, styleId]);
+  }, [data, styleChoice]);
 
   return result;
 }

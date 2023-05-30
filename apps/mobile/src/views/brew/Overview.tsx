@@ -1,7 +1,7 @@
 import { Text, SafeAreaView, FlatList, View } from 'dripsy';
-import { Button, Card, ListItem, Separator, iconResolver } from '@happynrwl/components';
-import { useNavigation } from '@react-navigation/native';
-import { useBrewExtras, useExtrasSelection } from '@happynrwl/services';
+import { AccordionItem, Button, Card, ListItem, Separator, iconResolver } from '@happynrwl/components';
+import { useBrewChoices } from '@happynrwl/services';
+import { Fragment } from 'react';
 
 export const config = {
   viewName: 'Overview',
@@ -9,31 +9,20 @@ export const config = {
 };
 
 export function SizeSelection() {
-  const navigation = useNavigation();
-  const extras = useBrewExtras();
-  const selectedExtras = useExtrasSelection();
+  const selectionData = useBrewChoices();
+
+  console.log(selectionData)
 
   return (
     <SafeAreaView sx={{ flex: 1, bg: '$background', p: '$3' }}>
-      <Card
-        withShadow
-        sx={{
-          flexGrow: 1,
-          flexShrink: 0,
-          flexBasis: 'auto',
-        }}>
-      <FlatList
-        renderItem={Item}
-        ItemSeparatorComponent={Separator}
-        keyExtractor={({ id }) => id}
-        data={[
-          { name: 'Milks', id: '60be1eabc45ecee5d77ad960' },
-          { name: 'Coffee', id: '60be1db3c45ecee5d77ad890' },
-          { name: 'Ristretto', id: '60ba197c2e35f2d9c786c525' },
-          { name: 'Lungo', id: '60ba3368c45ecee5d77a016b' },
-        ]}
-        // ListFooterComponent={<Button title='Brew your coffee' />} better here? but card.
-      />
+      <Card withShadow>
+        <FlatList
+          renderItem={Item}
+          ItemSeparatorComponent={Separator}
+          keyExtractor={({ _id }) => _id}
+          data={selectionData}
+          // ListFooterComponent={<Button title='Brew your coffee' />} better here? but card.
+        />
       </Card>
 
       <View sx={{ flex: 1 }} />
@@ -43,12 +32,28 @@ export function SizeSelection() {
   );
 }
 
-const Item = ({ item }) => (
-  <ListItem
-    key={item.key}
-    Icon={iconResolver(item.id)}
-    title={item.name}
-    sx={{ w: '100%' }}
-    Status={<Text>edit</Text>}
-  />
-)
+const Item = ({ item }) => {
+  if (item.parent) {
+    return (
+      <Fragment key={item._id}>
+        <ListItem
+          Icon={iconResolver(item.parent)}
+          title={item.parentName}
+          sx={{ w: '100%' }}
+          Status={<Text sx={{ color: '$textContrast' }}>edit</Text>}
+        />
+        <AccordionItem title={item.name} selected />
+      </Fragment>
+    )
+  }
+
+  return (
+    <ListItem
+      key={item._id}
+      Icon={iconResolver(item._id)}
+      title={item.name}
+      sx={{ w: '100%' }}
+      Status={<Text sx={{ color: '$textContrast' }}>edit</Text>}
+    />
+  );
+}

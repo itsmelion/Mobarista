@@ -1,10 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import type { RootState } from '../store';
 import { useAppDispatch, useAppSelector } from '../hooks';
+import type { RootState } from '../store';
+import type { StyleOption } from '../machine/machine.types';
 
 interface BrewState {
-  style: string | null;
+  style: StyleOption | null;
   size: string | null;
   extras: string[];
 }
@@ -19,7 +20,7 @@ export const brewSlice = createSlice({
   name: 'brew',
   initialState,
   reducers: {
-    setStyle: (state, action: PayloadAction<string>) => {
+    setStyle: (state, action: PayloadAction<StyleOption>) => {
       state.style = action.payload;
     },
     setSize: (state, action: PayloadAction<string>) => {
@@ -31,19 +32,21 @@ export const brewSlice = createSlice({
       state.extras = [...uniqueArr];
     },
   },
-})
+});
+const { setStyle, setSize, addExtras } = brewSlice.actions;
 
-const { setStyle, setSize, addExtras } = brewSlice.actions
 
 // Store Accessors
 export const useStyleSelection = () => useAppSelector((state: RootState) => state.brew.style);
 export const useSizeSelection = () => useAppSelector((state: RootState) => state.brew.size);
 export const useExtrasSelection = () => useAppSelector((state: RootState) => state.brew.extras);
+export const useBrewSelection = () => useAppSelector((state: RootState) => state.brew);
+// END Store Accessors
 
 // Store mutators
 export const useSetStyle = () => {
   const dispatch = useAppDispatch();
-  return (styleId: string) => dispatch(setStyle(styleId));
+  return (style: StyleOption) => dispatch(setStyle(style));
 };
 
 export const useSetSize = () => {
@@ -55,6 +58,7 @@ export const useSetExtras = () => {
   const dispatch = useAppDispatch();
   return (extraId: string) => dispatch(addExtras(extraId));
 };
+// END Store mutators
 
 
-export default brewSlice.reducer
+export default brewSlice.reducer;
