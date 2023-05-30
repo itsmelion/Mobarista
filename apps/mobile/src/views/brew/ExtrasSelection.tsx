@@ -1,4 +1,4 @@
-import { Text, ScrollView, SafeAreaView } from 'dripsy';
+import { View, ScrollView, SafeAreaView } from 'dripsy';
 import { useNavigation } from '@react-navigation/native';
 
 import { Accordion, AccordionItem, Button, ListItem, iconResolver } from '@happynrwl/components';
@@ -18,8 +18,8 @@ export function ExtrasSelection() {
   const addExtra = useSetExtras();
 
   return (
-    <SafeAreaView sx={{ flex: 1, bg: '$background' }}>
-      <ScrollView sx={{ flex: 1 }} contentContainerSx={{ p: '$3', gap: '$2' }}>
+    <SafeAreaView sx={{ flex: 1, bg: '$background', p: '$3' }}>
+      <ScrollView sx={{ h: '100%', w: '100%' }} contentContainerSx={{ gap: '$2' }}>
         {extras?.map((extraItem) => (
           <Accordion
             key={extraItem._id}
@@ -39,12 +39,14 @@ export function ExtrasSelection() {
             ))}
           </Accordion>
         ))}
-
-        <Button
-          title="Continue"
-          onPress={() => navigation.navigate(overviewView.config.viewName)}
-        />
       </ScrollView>
+
+      <View sx={{ flex: 1 }} />
+
+      <Button
+        title="Continue"
+        onPress={() => navigation.navigate(overviewView.config.viewName)}
+      />
     </SafeAreaView>
   );
 }
