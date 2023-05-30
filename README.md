@@ -1,5 +1,15 @@
 # Mobarista
 
+#### Goal:
+My focus on this test is to display the wider knowledge i have as a professional as i can in the time invested.
+I may briefly, but enoughly covered many subjects that i consider relevant for a JS professional.
+Them being:
+- Clean and comprehensive code
+- good architecture, ability to think and organize massive projects.
+- capability to operate the libraries suggested by the company
+
+Im aware of many points of improvement or that i deliberatley skipped for the sake of focusing on different things, or that i thought the knowledge/challenge they represent where already covered.
+
 ## Installation and usage
 - `npm install`
 - `npx nx run mobile:start`(will start metro for the mobile app)
@@ -8,6 +18,7 @@
 
 (with Nx [vscode plugin](https://marketplace.visualstudio.com/items?itemName=nrwl.angular-console) you can see all commands available)
 ### Architecture:
+
 This project is a Monorepo type(integrated repo).
 All dependencies are installed on the root folder, and used on packages and apps.
 Its good because allow ease to implement the pattern and the following possibilities:
