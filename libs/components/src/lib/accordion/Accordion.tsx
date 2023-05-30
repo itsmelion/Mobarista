@@ -1,11 +1,10 @@
-import { View } from 'dripsy';
+import { Pressable, View, styled } from 'dripsy';
+import type { ViewProps } from 'react-native';
+import { useState } from 'react';
+import { AnimatePresence, MotiView } from 'moti';
 
 import { Card } from '../card/Card';
-import { AccordionItem } from './AccordionItem';
 import { Separator } from '../separator/Separator';
-
-import type { PressableProps, ViewProps } from 'react-native';
-import { ListItem } from '../listItem/ListItem';
 
 
 export interface AccordionProps extends ViewProps {
@@ -15,16 +14,25 @@ export interface AccordionProps extends ViewProps {
 
 export function Accordion(props: AccordionProps) {
   const { HeaderComponent, selected, children, ...restProps } = props;
+  const [isExpanded, setExpanded] = useState(false);
 
   return (
     <Card>
-      {HeaderComponent}
+      <Pressable onPress={() => setExpanded(v => !v)}>
+        {HeaderComponent}
+      </Pressable>
 
-      <View sx={{ gap: '$2' }}>
-        <Separator />
+      <AnimatePresence>
+        {isExpanded && (
+          <AnimatedView from={{ scaleY: 0, opacity: 0 }} animate={{ scaleY: 1, opacity: 1 }}>
+            <Separator />
 
-        {children}
-      </View>
+            {children}
+          </AnimatedView>
+        )}
+      </AnimatePresence>
     </Card>
   );
 }
+
+const AnimatedView = styled(MotiView)({ gap: '$2' });

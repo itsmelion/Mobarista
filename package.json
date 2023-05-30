@@ -15,9 +15,11 @@
     "@tanstack/react-query": "^4.29.11",
     "dripsy": "^4.3.3",
     "lodash": "^4.17.21",
+    "moti": "^0.25.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.71.8",
+    "react-native-reanimated": "^3.1.0",
     "react-native-screens": "^3.20.0",
     "react-redux": "^8.0.5",
     "tslib": "^2.3.0"

@@ -18,7 +18,7 @@ export function ExtrasSelection() {
   const addExtra = useSetExtras();
 
   return (
-    <SafeAreaView sx={{ flex: 1, bg: '#FFFFFF' }}>
+    <SafeAreaView sx={{ flex: 1, bg: '$background' }}>
       <ScrollView sx={{ flex: 1 }} contentContainerSx={{ p: '$3', gap: '$2' }}>
         {extras?.map((extraItem) => (
           <Accordion

@@ -11,6 +11,13 @@ import {
 global.STORIES = [
   {
     titlePrefix: "",
+    directory: "./apps/storybook/.storybook/libs/components/src/lib",
+    files: "**/*.stories.?(ts|tsx|js|jsx)",
+    importPathMatcher:
+      "^\\.[\\\\/](?:apps[\\\\/]storybook[\\\\/]\\.storybook[\\\\/]libs[\\\\/]components[\\\\/]src[\\\\/]lib(?:[\\\\/](?!\\.)(?:(?:(?!(?:^|[\\\\/])\\.).)*?)[\\\\/]|[\\\\/]|$)(?!\\.)(?=.)[^\\\\/]*?\\.stories\\.(?:ts|tsx|js|jsx)?)$",
+  },
+  {
+    titlePrefix: "",
     directory: "./libs/components/src/lib",
     files: "**/*.stories.?(ts|tsx|js|jsx)",
     importPathMatcher:

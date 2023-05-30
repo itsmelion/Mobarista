@@ -1,4 +1,4 @@
-import { ScrollView, SafeAreaView } from 'dripsy';
+import { ScrollView, SafeAreaView, Pressable } from 'dripsy';
 import { ListItem, MediumCoffeeSvg, iconResolver } from '@happynrwl/components';
 import { useNavigation } from '@react-navigation/native';
 import { useBrewSize, useSetSize } from '@happynrwl/services';
@@ -16,19 +16,21 @@ export function SizeSelection() {
   const setSize = useSetSize();
 
   return (
-    <SafeAreaView sx={{ flex: 1, bg: '#FFFFFF' }}>
+    <SafeAreaView sx={{ flex: 1, bg: '$background' }}>
       <ScrollView sx={{ flex: 1 }} contentContainerSx={{ p: '$3', gap: '$2' }}>
         {sizes?.map((sizeItem) => (
-          <ListItem
-            withShadow
-            Icon={iconResolver(sizeItem._id)}
-            title={sizeItem.name}
+          <Pressable
             key={sizeItem._id}
             onPress={() => {
               setSize(sizeItem._id);
               navigation.navigate(extrasSelection.config.viewName)
-            }}
-          />
+            }}>
+            <ListItem
+              withShadow
+              Icon={iconResolver(sizeItem._id)}
+              title={sizeItem.name}
+            />
+          </Pressable>
         ))}
       </ScrollView>
     </SafeAreaView>

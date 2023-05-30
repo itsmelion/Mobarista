@@ -14,7 +14,7 @@ export function SizeSelection() {
   const selectedExtras = useExtrasSelection();
 
   return (
-    <SafeAreaView sx={{ flex: 1, bg: '#FFFFFF', p: '$3' }}>
+    <SafeAreaView sx={{ flex: 1, bg: '$background', p: '$3' }}>
       {/* Could be a FlatList */}
       <ScrollView sx={{ flex: 1 }} contentContainerSx={{ gap: '$2' }}>
         <Card withShadow>

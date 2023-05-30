@@ -1,4 +1,5 @@
-import { Pressable, SxProp, Text, View } from 'dripsy';
+import { Pressable, SxProp, Text, View, styled } from 'dripsy';
+import { MotiView, AnimatePresence } from 'moti';
 
 import CheckSvg from '../icons/check.svg';
 import ElipseSvg from '../icons/elipse.svg';
@@ -41,7 +42,10 @@ export function AccordionItem(props: AccordionItemProps) {
           width: 28,
         }}>
           <Icon><ElipseSvg /></Icon>
-          {selected && <Icon sx={{ top: 8, left: 6}}><CheckSvg /></Icon>}
+
+          <AnimatePresence>
+            {selected && <Icon sx={{ top: 8, left: 6 }}><CheckSvg /></Icon>}
+          </AnimatePresence>
         </View>
       </View>
     </Pressable>
@@ -49,5 +53,11 @@ export function AccordionItem(props: AccordionItemProps) {
 }
 
 const Icon = (props: ViewProps & { sx?: SxProp }) => (
-  <View  {...props} sx={{ ...StyleSheet.absoluteFillObject, ...props.sx }} />
+  <AnimatedIcon
+    {...props}
+    from={{ scale: 0, opacity: 0 }}
+    animate={{ opacity: 1, scale: 1 }}
+  />
 );
+
+const AnimatedIcon = styled(MotiView)(StyleSheet.absoluteFillObject)
