@@ -11,8 +11,6 @@ export const config = {
 export function SizeSelection() {
   const selectionData = useBrewChoices();
 
-  console.log(selectionData)
-
   return (
     <SafeAreaView sx={{ flex: 1, bg: '$background', p: '$3' }}>
       <Card withShadow>
