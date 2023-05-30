@@ -1,4 +1,4 @@
-import { Pressable, Text, View } from 'dripsy';
+import { Pressable, SxProp, Text, View } from 'dripsy';
 
 import type { ViewProps } from 'react-native';
 import type { SvgProps } from 'react-native-svg';
@@ -10,10 +10,11 @@ export interface ListItemProps extends ViewProps {
   Status?: React.ReactElement;
   title: string;
   withShadow?: boolean;
+  sx?: SxProp;
 }
 
 export function ListItem(props: ListItemProps) {
-  const { title, Status, Icon, children, withShadow, ...restProps } = props;
+  const { title, Status, Icon, children, withShadow, sx, ...restProps } = props;
 
   return (
     <Card
@@ -22,11 +23,12 @@ export function ListItem(props: ListItemProps) {
       sx={{
         minHeight: 95,
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
+        ...sx,
       }}>
       {Icon && <Icon />}
 
-      <Text variant='medium' sx={{ flex: 1, color: '#FFFFFF' }}>
+      <Text variant='medium' sx={{ flex: 1, color: '$textContrast' }}>
         {title}
       </Text>
 
