@@ -1,11 +1,12 @@
 import { Suspense } from 'react';
 import { ActivityIndicator } from 'react-native';
 import { SafeAreaView, ScrollView, Pressable } from 'dripsy';
-import { ListItem, iconResolver } from '@happynrwl/components';
 import { useNavigation } from '@react-navigation/native';
 import ErrorBoundary from 'react-native-error-boundary';
 
+import { ListItem, iconResolver } from '@happynrwl/components';
 import { useBrewStyles, useSetStyle } from '@happynrwl/services';
+
 import * as sizeSelection from './SizeSelection'
 
 export const config = {

@@ -37,12 +37,12 @@ export function useBrewExtrasDictionary() {
 
     const extrasAvailable = _.reduce(data?.extras, (prev, curr) => {
       const flattenedSubSelection = curr?.subselections.map((item) => ({
-        id: item._id,
+        _id: item._id,
         parent: curr._id,
         parentName: curr.name,
         name: item.name,
       }));
-      const keyedSubselections = _.keyBy(flattenedSubSelection, 'id');
+      const keyedSubselections = _.keyBy(flattenedSubSelection, '_id');
 
       return { ...prev, ...keyedSubselections };
     }, {} as Record<string, ExtraDictionaryEntry>);
