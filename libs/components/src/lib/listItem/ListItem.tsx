@@ -1,4 +1,4 @@
-import { Pressable, SxProp, Text, View } from 'dripsy';
+import { SxProp, Text, View } from 'dripsy';
 
 import type { ViewProps } from 'react-native';
 import type { SvgProps } from 'react-native-svg';

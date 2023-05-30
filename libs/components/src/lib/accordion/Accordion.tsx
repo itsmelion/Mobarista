@@ -1,4 +1,4 @@
-import { Pressable, View, styled } from 'dripsy';
+import { Pressable, styled } from 'dripsy';
 import type { ViewProps } from 'react-native';
 import { useState } from 'react';
 import { AnimatePresence, MotiView } from 'moti';
@@ -17,7 +17,7 @@ export function Accordion(props: AccordionProps) {
   const [isExpanded, setExpanded] = useState(false);
 
   return (
-    <Card>
+    <Card {...restProps}>
       <Pressable onPress={() => setExpanded(v => !v)}>
         {HeaderComponent}
       </Pressable>

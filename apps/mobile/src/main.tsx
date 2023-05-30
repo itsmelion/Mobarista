@@ -1,4 +1,4 @@
-import { useColorScheme, Alert } from 'react-native';
+import { useColorScheme } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { DripsyProvider } from 'dripsy';
 import {

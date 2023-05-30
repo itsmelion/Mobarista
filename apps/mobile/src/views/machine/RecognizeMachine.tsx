@@ -17,7 +17,7 @@ export function RecognizeMachine() {
   });
 
   return (
-    <SafeAreaView sx={{ flex: 1, bg: '#FFFFFF' }}>
+    <SafeAreaView sx={{ flex: 1, bg: '$background' }}>
       <MachineNFCSvg style={{ flex: 4, width: '100%', alignSelf: 'center' }} />
 
       <View sx={{ flex: 1, p: '$4' }}>

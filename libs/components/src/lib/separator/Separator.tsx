@@ -6,7 +6,7 @@ export const Separator = () => (
     sx={{
       width: '100%',
       height: PixelRatio.get() * 0.5,
-      bg: '#FFFFFF',
+      bg: '$textContrast',
       mb: '$2',
     }}
   />

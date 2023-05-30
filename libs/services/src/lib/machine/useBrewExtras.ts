@@ -31,7 +31,6 @@ type ExtraDictionaryEntry = OptionLike & { parent: string, parentName: string };
  */
 export function useBrewExtrasDictionary() {
   const { data } = useMachine();
-  const styleChoice = useStyleSelection();
 
   const result = useMemo<Record<string, ExtraDictionaryEntry>>(() => {
     const parentsExtras = _.keyBy(data?.extras, '_id');
@@ -49,7 +48,7 @@ export function useBrewExtrasDictionary() {
     }, {} as Record<string, ExtraDictionaryEntry>);
 
     return { ...parentsExtras, ...extrasAvailable };
-  }, [data, styleChoice]);
+  }, [data]);
 
   return result;
 }

@@ -1,5 +1,4 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Header } from '@happynrwl/components';
 
 import * as brewStack from './brew';
 import * as machineStack from './machine';

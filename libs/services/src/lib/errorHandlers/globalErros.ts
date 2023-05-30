@@ -1,6 +1,6 @@
 import {Alert} from 'react-native';
 import RNRestart from 'react-native-restart';
-import {setJSExceptionHandler, JSExceptionHandler} from 'react-native-exception-handler';
+import {JSExceptionHandler} from 'react-native-exception-handler';
 
 /**
 * Global Error Handlers

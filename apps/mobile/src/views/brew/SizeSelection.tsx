@@ -1,5 +1,5 @@
 import { ScrollView, SafeAreaView, Pressable } from 'dripsy';
-import { ListItem, MediumCoffeeSvg, iconResolver } from '@happynrwl/components';
+import { ListItem, iconResolver } from '@happynrwl/components';
 import { useNavigation } from '@react-navigation/native';
 import { useBrewSize, useSetSize } from '@happynrwl/services';
 

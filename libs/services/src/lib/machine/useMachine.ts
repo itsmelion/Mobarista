@@ -14,7 +14,7 @@ const host = 'https://darkroastedbeans.coffeeit.nl';
  * @returns Machine details and its many brew options available.
  */
 export function useMachine<TData = MachineDTO>(
-  machineId: string = '60ba1ab72e35f2d9c786c610',
+  machineId = '60ba1ab72e35f2d9c786c610',
   options?: UseQueryOptions<TData>
 ) {
   return useQuery<TData>({
