@@ -1,7 +1,8 @@
+import { useEffect } from 'react';
 import { ScrollView, SafeAreaView, Pressable } from 'dripsy';
 import { ListItem, iconResolver } from '@happynrwl/components';
 import { useNavigation } from '@react-navigation/native';
-import { useBrewSize, useSetSize } from '@happynrwl/services';
+import { useBrewSize, useSetSize, useSetStyle } from '@happynrwl/services';
 
 import * as extrasSelection from './ExtrasSelection';
 
@@ -14,6 +15,13 @@ export function SizeSelection() {
   const navigation = useNavigation();
   const sizes = useBrewSize();
   const setSize = useSetSize();
+  const setStyle = useSetStyle();
+
+  // on go back, clear the style and size;
+  useEffect(() => navigation.addListener('beforeRemove', () => {
+    setStyle(null);
+    setSize(null);
+  }), [navigation]);
 
   return (
     <SafeAreaView sx={{ flex: 1, bg: '$background' }}>

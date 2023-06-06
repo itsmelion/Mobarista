@@ -35,7 +35,7 @@ export function BrewStack({ route }) {
 
       <Stack.Screen
         name={overview.config.viewName}
-        component={overview.SizeSelection}
+        component={overview.Overview}
         initialParams={{ title: overview.config.title }}
       />
     </Stack.Navigator>

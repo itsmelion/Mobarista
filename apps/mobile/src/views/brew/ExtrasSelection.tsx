@@ -1,8 +1,9 @@
+import { useEffect } from 'react';
 import { View, ScrollView, SafeAreaView } from 'dripsy';
 import { useNavigation } from '@react-navigation/native';
 
 import { Accordion, AccordionItem, Button, ListItem, iconResolver } from '@happynrwl/components';
-import { useBrewExtras, useExtrasSelection, useSetExtras } from '@happynrwl/services';
+import { useBrewExtras, useClearExtras, useExtrasSelection, useSetExtras, useSetSize } from '@happynrwl/services';
 
 import * as overviewView from './Overview';
 
@@ -16,6 +17,14 @@ export function ExtrasSelection() {
   const extras = useBrewExtras();
   const selectedExtras = useExtrasSelection();
   const addExtra = useSetExtras();
+  const clearExtras = useClearExtras();
+  const clearSize = useSetSize();
+
+  // on go back, clear the extras and size;
+  useEffect(() => navigation.addListener('beforeRemove', () => {
+    clearExtras();
+    clearSize(null);
+  }), [navigation]);
 
   return (
     <SafeAreaView sx={{ flex: 1, bg: '$background', p: '$3' }}>

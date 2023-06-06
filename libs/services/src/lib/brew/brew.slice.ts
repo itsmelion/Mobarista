@@ -20,10 +20,10 @@ export const brewSlice = createSlice({
   name: 'brew',
   initialState,
   reducers: {
-    setStyle: (state, action: PayloadAction<StyleOption>) => {
+    setStyle: (state, action: PayloadAction<StyleOption | null>) => {
       state.style = action.payload;
     },
-    setSize: (state, action: PayloadAction<string>) => {
+    setSize: (state, action: PayloadAction<string | null>) => {
       state.size = action.payload;
     },
     addExtras: (state, action: PayloadAction<string>) => {
@@ -31,9 +31,12 @@ export const brewSlice = createSlice({
       const uniqueArr = new Set(state.extras);
       state.extras = [...uniqueArr];
     },
+    clearExtras: (state) => {
+      state.extras = [];
+    },
   },
 });
-const { setStyle, setSize, addExtras } = brewSlice.actions;
+const { setStyle, setSize, addExtras, clearExtras } = brewSlice.actions;
 
 
 // Store Accessors
@@ -46,17 +49,22 @@ export const useBrewSelection = () => useAppSelector((state: RootState) => state
 // Store mutators
 export const useSetStyle = () => {
   const dispatch = useAppDispatch();
-  return (style: StyleOption) => dispatch(setStyle(style));
+  return (style: StyleOption | null) => dispatch(setStyle(style));
 };
 
 export const useSetSize = () => {
   const dispatch = useAppDispatch();
-  return (sizeId: string) => dispatch(setSize(sizeId));
+  return (sizeId: string | null) => dispatch(setSize(sizeId));
 };
 
 export const useSetExtras = () => {
   const dispatch = useAppDispatch();
   return (extraId: string) => dispatch(addExtras(extraId));
+};
+
+export const useClearExtras = () => {
+  const dispatch = useAppDispatch();
+  return () => dispatch(clearExtras());
 };
 // END Store mutators
 

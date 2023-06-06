@@ -1,15 +1,21 @@
 import { Text, SafeAreaView, FlatList, View } from 'dripsy';
 import { AccordionItem, Button, Card, ListItem, Separator, iconResolver } from '@happynrwl/components';
-import { useBrewChoices } from '@happynrwl/services';
-import { Fragment } from 'react';
+import { useBrewChoices, useClearExtras, useSetExtras } from '@happynrwl/services';
+import { Fragment, useEffect } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 export const config = {
   viewName: 'Overview',
   title: 'Overview',
 };
 
-export function SizeSelection() {
+export function Overview() {
+  const navigation = useNavigation();
   const selectionData = useBrewChoices();
+  const clearExtras = useClearExtras();
+
+  // on go back, clear the style and size;
+  useEffect(() => navigation.addListener('beforeRemove', clearExtras), [navigation]);
 
   return (
     <SafeAreaView sx={{ flex: 1, bg: '$background', p: '$3' }}>
