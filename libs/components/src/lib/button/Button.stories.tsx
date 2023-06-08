@@ -8,5 +8,7 @@ const Story: Meta<typeof Button> = {
 export default Story;
 
 export const Primary = {
-  args: {},
+  args: {
+    title: 'I am a button'
+  },
 };

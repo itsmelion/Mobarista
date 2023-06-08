@@ -8,6 +8,8 @@
     "@react-navigation/native": "*",
     "@react-navigation/native-stack": "*",
     "@react-navigation/routers": "*",
+    "@react-native-async-storage/async-storage": "*",
+    "@react-native-community/datetimepicker": "*",
     "@reduxjs/toolkit": "*",
     "@storybook/addon-actions": "*",
     "@storybook/addon-ondevice-actions": "*",

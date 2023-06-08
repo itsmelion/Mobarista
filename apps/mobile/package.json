@@ -9,7 +9,6 @@
     "@react-navigation/native-stack": "*",
     "@react-navigation/routers": "*",
     "@reduxjs/toolkit": "*",
-    "@storybook/react-native": "*",
     "@tanstack/react-query": "*",
     "@testing-library/jest-native": "*",
     "@testing-library/react": "*",

@@ -8,5 +8,11 @@ const Story: Meta<typeof Card> = {
 export default Story;
 
 export const Primary = {
-  args: {},
+  args: {
+    withShadow: true,
+    sx: {
+      m: '$3',
+      minHeight: 100,
+    }
+  },
 };
