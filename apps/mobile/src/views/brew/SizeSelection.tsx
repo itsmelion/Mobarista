@@ -1,8 +1,8 @@
-import { useEffect } from 'react';
-import { ScrollView, SafeAreaView, Pressable } from 'dripsy';
 import { ListItem, iconResolver } from '@happynrwl/components';
-import { useNavigation } from '@react-navigation/native';
 import { useBrewSize, useSetSize, useSetStyle } from '@happynrwl/services';
+import { useNavigation } from '@react-navigation/native';
+import { ScrollView, SafeAreaView, Pressable } from 'dripsy';
+import { useEffect } from 'react';
 
 import * as extrasSelection from './ExtrasSelection';
 
@@ -21,22 +21,22 @@ export function SizeSelection() {
   useEffect(() => navigation.addListener('beforeRemove', () => {
     setStyle(null);
     setSize(null);
-  }), [navigation]);
+  }), [navigation, setStyle, setSize]);
 
   return (
     <SafeAreaView sx={{ flex: 1, bg: '$background' }}>
-      <ScrollView sx={{ flex: 1 }} contentContainerSx={{ p: '$3', gap: '$2' }}>
+      <ScrollView contentContainerSx={{ p: '$3', gap: '$2' }} sx={{ flex: 1 }}>
         {sizes?.map((sizeItem) => (
           <Pressable
             key={sizeItem._id}
             onPress={() => {
               setSize(sizeItem._id);
-              navigation.navigate(extrasSelection.config.viewName)
+              navigation.navigate(extrasSelection.config.viewName);
             }}>
             <ListItem
-              withShadow
               Icon={iconResolver(sizeItem._id)}
               title={sizeItem.name}
+              withShadow
             />
           </Pressable>
         ))}

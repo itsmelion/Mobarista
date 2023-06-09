@@ -1,11 +1,11 @@
-import { Suspense } from 'react';
-import { ActivityIndicator } from 'react-native';
-import { SafeAreaView, ScrollView, Pressable } from 'dripsy';
-import { useNavigation } from '@react-navigation/native';
-import ErrorBoundary from 'react-native-error-boundary';
-
 import { ListItem, iconResolver } from '@happynrwl/components';
 import { useBrewStyles, useSetStyle } from '@happynrwl/services';
+import { useNavigation } from '@react-navigation/native';
+import { SafeAreaView, ScrollView, Pressable } from 'dripsy';
+import { Suspense } from 'react';
+import { ActivityIndicator } from 'react-native';
+import ErrorBoundary from 'react-native-error-boundary';
+
 
 import * as sizeSelection from './SizeSelection'
 
@@ -21,7 +21,7 @@ export function StyleSelection() {
 
   return (
     <SafeAreaView sx={{ flex: 1, bg: '$background' }}>
-      <ScrollView sx={{ flex: 1 }} contentContainerSx={{ p: '$3', gap: '$2' }}>
+      <ScrollView contentContainerSx={{ p: '$3', gap: '$2' }} sx={{ flex: 1 }}>
         <ErrorBoundary>
           <Suspense fallback={<ActivityIndicator/>}>
             {data.map(styleItem => (
@@ -32,9 +32,9 @@ export function StyleSelection() {
                   navigation.navigate(sizeSelection.config.viewName)
                 }}>
                 <ListItem
-                  withShadow
                   Icon={iconResolver(styleItem._id)}
                   title={styleItem.name}
+                  withShadow
                 />
               </Pressable>
             ))}

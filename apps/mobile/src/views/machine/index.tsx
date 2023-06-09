@@ -1,5 +1,5 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Header } from '@happynrwl/components';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import * as recognizeMachineView from './RecognizeMachine';
 
@@ -13,9 +13,9 @@ export function MachineStack() {
       initialRouteName={recognizeMachineView.config.viewName}
       screenOptions={{ header: Header, headerTitle: `Dark Roasted Beans` }}>
       <Stack.Screen
-        name={recognizeMachineView.config.viewName}
         component={recognizeMachineView.RecognizeMachine}
         initialParams={{ title: recognizeMachineView.config.title }}
+        name={recognizeMachineView.config.viewName}
       />
     </Stack.Navigator>
   );
