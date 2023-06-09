@@ -1,15 +1,14 @@
-import { useColorScheme } from 'react-native';
+import { matcha, nightshade } from '@happynrwl/components';
+import { errorHandler, store, useOnlineManager } from '@happynrwl/services';
 import { NavigationContainer } from '@react-navigation/native';
-import { DripsyProvider } from 'dripsy';
 import {
   QueryClient,
   QueryClientProvider,
-} from '@tanstack/react-query'
+} from '@tanstack/react-query';
+import { DripsyProvider } from 'dripsy';
+import { useColorScheme } from 'react-native';
+import { setJSExceptionHandler, setNativeExceptionHandler } from 'react-native-exception-handler';
 import { Provider } from 'react-redux';
-import {setJSExceptionHandler, setNativeExceptionHandler } from 'react-native-exception-handler';
-
-import { matcha, nightshade } from '@happynrwl/components';
-import { errorHandler, store, useOnlineManager } from '@happynrwl/services';
 
 import { RootStack } from './views/root';
 
@@ -22,12 +21,12 @@ const queryClient = new QueryClient({
   },
 });
 
-function App(): JSX.Element {
+export function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
   setJSExceptionHandler(errorHandler);
   setNativeExceptionHandler((errorString) => {
-    //You can do something like call an api to report to dev team here
+    // You can do something like call an api to report to dev team here
   });
 
   useOnlineManager();
@@ -44,5 +43,3 @@ function App(): JSX.Element {
     </Provider>
   );
 }
-
-export default App;

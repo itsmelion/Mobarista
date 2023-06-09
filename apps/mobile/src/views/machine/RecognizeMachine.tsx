@@ -1,8 +1,8 @@
-import { Text, SafeAreaView, View } from 'dripsy';
-import { useNavigation } from '@react-navigation/native';
-
-import { useMachine } from '@happynrwl/services';
 import { MachineNFCSvg } from '@happynrwl/components';
+import { useMachine } from '@happynrwl/services';
+import { useNavigation } from '@react-navigation/native';
+import { Text, SafeAreaView, View } from 'dripsy';
+
 
 export const config = {
   viewName: 'RecognizeMachine',

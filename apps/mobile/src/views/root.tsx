@@ -11,13 +11,13 @@ export function RootStack() {
       initialRouteName={machineStack.stackName}
       screenOptions={{ headerShown: false }}>
       <Stack.Screen
-        name={machineStack.stackName}
         component={machineStack.MachineStack}
+        name={machineStack.stackName}
       />
 
       <Stack.Screen
-        name={brewStack.stackName}
         component={brewStack.BrewStack}
+        name={brewStack.stackName}
       />
     </Stack.Navigator>
   )

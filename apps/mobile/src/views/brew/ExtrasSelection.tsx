@@ -1,9 +1,12 @@
-import { useEffect } from 'react';
-import { View, ScrollView, SafeAreaView } from 'dripsy';
+import {
+  Accordion, AccordionItem, Button, ListItem, iconResolver,
+} from '@happynrwl/components';
+import {
+  useBrewExtras, useClearExtras, useExtrasSelection, useSetExtras, useSetSize,
+} from '@happynrwl/services';
 import { useNavigation } from '@react-navigation/native';
-
-import { Accordion, AccordionItem, Button, ListItem, iconResolver } from '@happynrwl/components';
-import { useBrewExtras, useClearExtras, useExtrasSelection, useSetExtras, useSetSize } from '@happynrwl/services';
+import { View, ScrollView, SafeAreaView } from 'dripsy';
+import { useEffect } from 'react';
 
 import * as overviewView from './Overview';
 
@@ -24,26 +27,26 @@ export function ExtrasSelection() {
   useEffect(() => navigation.addListener('beforeRemove', () => {
     clearExtras();
     clearSize(null);
-  }), [navigation]);
+  }), [navigation, clearExtras, clearSize]);
 
   return (
     <SafeAreaView sx={{ flex: 1, bg: '$background', p: '$3' }}>
-      <ScrollView sx={{ h: '100%', w: '100%' }} contentContainerSx={{ gap: '$2' }}>
+      <ScrollView contentContainerSx={{ gap: '$2' }} sx={{ h: '100%', w: '100%' }}>
         {extras?.map((extraItem) => (
           <Accordion
             key={extraItem._id}
             HeaderComponent={(
-              <ListItem title={extraItem.name} Icon={iconResolver(extraItem._id)} />
+              <ListItem Icon={iconResolver(extraItem._id)} title={extraItem.name} />
             )}>
             {extraItem.subselections.map((subItem) => (
               <AccordionItem
-                title={subItem.name}
                 key={subItem._id}
-                selected={selectedExtras.includes(subItem._id)}
                 onPress={() => {
                   // TODO: Allow only one option
-                  addExtra(subItem._id)
+                  addExtra(subItem._id);
                 }}
+                selected={selectedExtras.includes(subItem._id)}
+                title={subItem.name}
               />
             ))}
           </Accordion>
@@ -53,8 +56,8 @@ export function ExtrasSelection() {
       <View sx={{ flex: 1 }} />
 
       <Button
-        title="Continue"
         onPress={() => navigation.navigate(overviewView.config.viewName)}
+        title="Continue"
       />
     </SafeAreaView>
   );

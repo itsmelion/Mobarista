@@ -1,5 +1,9 @@
 module.exports = {
-  "extends": ["plugin:@nx/react", "../../.eslintrc.js", "lion/react-native"],
+  "extends": [
+    "../eslint-config",
+    "plugin:@nx/react",
+    "../../.eslintrc.js"
+  ],
   "ignorePatterns": ["!**/*", "public", ".cache", "node_modules"],
   "overrides": [
     {

@@ -9,5 +9,10 @@
   "eslint.options": {
     "overrideConfigFile": "./.eslintrc.js"
   },
-  "terminal.integrated.scrollback": 8000
+  "terminal.integrated.scrollback": 8000,
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#3B2B01",
+    "titleBar.activeBackground": "#533C02",
+    "titleBar.activeForeground": "#FFF9EB"
+  }
 }

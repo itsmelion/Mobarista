@@ -1,8 +1,8 @@
 module.exports = {
   "extends": [
+    "../../libs/eslint-config",
     "plugin:@nx/react",
     "../../.eslintrc.js",
-    "lion",
   ],
   "plugins": [
     "@tanstack/query"
