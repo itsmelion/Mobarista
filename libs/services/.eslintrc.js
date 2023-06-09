@@ -1,7 +1,8 @@
 module.exports = {
   "extends": [
     "plugin:@nx/react",
-    "../../.eslintrc.js"
+    "../../.eslintrc.js",
+    "lion",
   ],
   "plugins": [
     "@tanstack/query"

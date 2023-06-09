@@ -2,6 +2,10 @@ module.exports = {
   "root": true,
   "ignorePatterns": ["**/*"],
   "plugins": ["@nx"],
+  "parserOptions": {
+    "ecmaVersion": 2023,
+    "project": "./tsconfig.base.json",
+  },
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],

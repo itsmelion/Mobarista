@@ -8,5 +8,6 @@
   ],
   "eslint.options": {
     "overrideConfigFile": "./.eslintrc.js"
-  }
+  },
+  "terminal.integrated.scrollback": 8000
 }
