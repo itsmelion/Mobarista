@@ -57,6 +57,9 @@ const getStories = () => {
   return {
     "./libs/components/src/lib/button/Button.stories.tsx": require("../../../libs/components/src/lib/button/Button.stories.tsx"),
     "./libs/components/src/lib/card/Card.stories.tsx": require("../../../libs/components/src/lib/card/Card.stories.tsx"),
+    "./libs/components/src/lib/listItem/ListItem.stories.tsx": require("../../../libs/components/src/lib/listItem/ListItem.stories.tsx"),
+    "./libs/components/src/lib/separator/Separator.stories.tsx": require("../../../libs/components/src/lib/separator/Separator.stories.tsx"),
+    "./libs/components/src/lib/Typography.stories.tsx": require("../../../libs/components/src/lib/Typography.stories.tsx"),
   };
 };
 

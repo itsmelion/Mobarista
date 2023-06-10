@@ -27,6 +27,7 @@
     "react-native-screens": "*",
     "react-native-svg": "*",
     "react-redux": "*",
-    "react-test-renderer": "*"
+    "react-test-renderer": "*",
+    "@storybook/react-native": "*"
   }
 }

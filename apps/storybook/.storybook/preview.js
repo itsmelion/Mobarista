@@ -28,7 +28,7 @@ export const parameters = {
     },
   },
   backgrounds: [
-    {name: 'plain', value: 'white', default: true},
+    {name: 'plain', value: '#FAFAFA', default: true},
     {name: 'warm', value: 'hotpink'},
     {name: 'cool', value: 'deepskyblue'},
   ],

@@ -4,7 +4,7 @@ import * as base from '../base';
 
 const colors: typeof base.colors = {
   $text: '#FFFFFF',
-  $textContrast: '#000000',
+  $textContrast: '#EEEEEE',
   $background: '#1F1F2E',
   $primary: '#372F3F',
 };

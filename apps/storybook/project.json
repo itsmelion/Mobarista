@@ -28,12 +28,6 @@
         "command": "sb-rn-watcher --config-path ./apps/storybook/.storybook"
       }
     },
-    "go": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "react-native-storybook-server --config-dir ./apps/storybook/.storybook"
-      }
-    },
     "run-ios": {
       "executor": "@nx/react-native:run-ios",
       "options": {}

@@ -25,14 +25,6 @@
           "codeCoverage": true
         }
       }
-    },
-    "storybook": {
-      "executor": "@nx/react-native:storybook",
-      "options": {
-        "searchDir": ["libs/components/src"],
-        "outputFile": "./.storybook/story-loader.ts",
-        "pattern": "**/*.stories.@(js|jsx|ts|tsx|md)"
-      }
     }
   }
 }
